@@ -5,15 +5,6 @@ package org.example
 data class Product(val name: String, val price: Double, val category: String)
 
 fun main() {
-    val products = listOf(
-        Product(name = "Laptop", price = 35000.0, category = "Electronics"),
-        Product(name = "Smartphone", price = 25000.0, category = "Electronics"),
-        Product(name = "T-shirt", price = 450.0, category = "Apparel"),
-        Product(name = "Monitor", price = 7500.0, category = "Electronics"),
-        Product(name = "Keyboard", price = 499.0, category = "Electronics"),
-        Product(name = "Jeans", price = 1200.0, category = "Apparel"),
-        Product(name = "Headphones", price = 1800.0, category = "Electronics")
-    )
     // 2. สร้างรายการสินค้าตัวอย่าง (List<Product>)
     val products = listOf(
         Product(name = "Laptop", price = 35000.0, category = "Electronics"),
@@ -31,16 +22,8 @@ fun main() {
     println("รายการสินค้าทั้งหมด:")
     products.forEach { println(it) }
     println("--------------------------------------------------")
-    <<<<<<< HEAD
 
     // --- โจทย์ก่อนหน้า: จงหาผลรวมราคาสินค้าทั้งหมดในหมวด 'Electronics' ที่มีราคามากกว่า 500 บาท ---
-    =======
-    val totalElecPriceOver500 = products
-        .filter { it.category == "Electronics" }
-        .filter { it.price > 500.0 }
-        .sumOf {it.price}
-    // --- โจทย์: จงหาผลรวมราคาสินค้าทั้งหมดในหมวด 'Electronics' ที่มีราคามากกว่า 500 บาท ---
-    >>>>>>> 87520fb3f4cf91295df1cccd5bda93b1d9221cf9
 
     // 3. วิธีที่ 1: การใช้ Chaining กับ List โดยตรง
     val totalElecPriceOver500 = products
@@ -54,20 +37,11 @@ fun main() {
 
 
     // 4. (ขั้นสูง) วิธีที่ 2: การใช้ .asSequence() เพื่อเพิ่มประสิทธิภาพ
-    <<<<<<< HEAD
     val totalElecPriceOver500Sequence = products.asSequence()
         .filter { it.category == "Electronics" } // กรองเฉพาะสินค้าในหมวด "Electronics"
         .filter { it.price > 500.0 }        // กรองเฉพาะสินค้าที่มีราคาสูงกว่า 500 บาท
         .sumOf { it.price }                  // รวมราคาสินค้าที่ผ่านการกรองทั้งหมด
 
-    =======
-    // แปลง List เป็น Sequence ก่อนเริ่มประมวลผล
-//🚨    val totalElecPriceOver500Sequence = ?
-    val totalElecPriceOver500Sequence = products.asSequence()
-        .filter { it.category == "Electronics" }
-        .filter { it.price > 500.0 }
-        .sumOf {it.price}
-    >>>>>>> 87520fb3f4cf91295df1cccd5bda93b1d9221cf9
     println("วิธีที่ 2: ใช้ .asSequence() (ขั้นสูง)")
     println("ผลรวมราคาสินค้า Electronics ที่ราคา > 500 บาท: $totalElecPriceOver500Sequence บาท")
     println("--------------------------------------------------")
